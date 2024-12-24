@@ -1,0 +1,156 @@
+2024-12-24T14:08:37.697+02:00  INFO 1460 --- [routes] [restartedMain] com.runner.runs.RunsApplication          : Starting RunsApplication using Java 21.0.3 with PID 1460 (C:\Users\vaggp\IdeaProjects\recent\spring-boot-microservices-demo\runs\target\classes started by vaggp in C:\Users\vaggp\IdeaProjects\recent\spring-boot-microservices-demo)
+2024-12-24T14:08:37.700+02:00  INFO 1460 --- [routes] [restartedMain] com.runner.runs.RunsApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-12-24T14:08:37.875+02:00  INFO 1460 --- [routes] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-12-24T14:08:37.876+02:00  WARN 1460 --- [routes] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@3dd0663f uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): None of labels [] found
+2024-12-24T14:08:37.877+02:00  INFO 1460 --- [routes] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-12-24T14:08:37.877+02:00  WARN 1460 --- [routes] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@24a03e1c uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): None of labels [] found
+2024-12-24T14:08:37.877+02:00  INFO 1460 --- [routes] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-12-24T14:08:37.877+02:00  WARN 1460 --- [routes] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@62757ee1 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): None of labels [] found
+2024-12-24T14:08:37.881+02:00  INFO 1460 --- [routes] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-24T14:08:37.882+02:00  INFO 1460 --- [routes] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-24T14:08:39.443+02:00  INFO 1460 --- [routes] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-24T14:08:39.639+02:00  INFO 1460 --- [routes] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 185 ms. Found 1 JPA repository interface.
+2024-12-24T14:08:40.058+02:00  INFO 1460 --- [routes] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8e08b3f2-0d92-3a1a-bb93-d4789d7a775e
+2024-12-24T14:08:41.061+02:00  INFO 1460 --- [routes] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8060 (http)
+2024-12-24T14:08:41.080+02:00  INFO 1460 --- [routes] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-24T14:08:41.080+02:00  INFO 1460 --- [routes] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-24T14:08:41.158+02:00  INFO 1460 --- [routes] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-24T14:08:41.159+02:00  INFO 1460 --- [routes] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3276 ms
+2024-12-24T14:08:41.756+02:00  INFO 1460 --- [routes] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-24T14:08:41.897+02:00  INFO 1460 --- [routes] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-24T14:08:41.942+02:00  INFO 1460 --- [routes] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-24T14:08:42.347+02:00  INFO 1460 --- [routes] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-24T14:08:42.397+02:00  INFO 1460 --- [routes] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-24T14:08:42.594+02:00  INFO 1460 --- [routes] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@233f70c0
+2024-12-24T14:08:42.597+02:00  INFO 1460 --- [routes] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-24T14:08:42.703+02:00  INFO 1460 --- [routes] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 14.15
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-24T14:08:43.954+02:00  INFO 1460 --- [routes] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-24T14:08:44.010+02:00  INFO 1460 --- [routes] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T14:08:46.238+02:00  INFO 1460 --- [routes] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-24T14:08:46.305+02:00  INFO 1460 --- [routes] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-12-24T14:08:46.406+02:00  WARN 1460 --- [routes] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-12-24T14:08:46.419+02:00  INFO 1460 --- [routes] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-12-24T14:08:46.576+02:00  INFO 1460 --- [routes] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-12-24T14:08:46.610+02:00  INFO 1460 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-12-24T14:08:46.615+02:00  INFO 1460 --- [routes] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-12-24T14:08:46.625+02:00  INFO 1460 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-12-24T14:08:46.626+02:00  INFO 1460 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-12-24T14:08:46.626+02:00  INFO 1460 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-12-24T14:08:46.626+02:00  INFO 1460 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-12-24T14:08:46.626+02:00  INFO 1460 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-12-24T14:08:46.626+02:00  INFO 1460 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-12-24T14:08:46.626+02:00  INFO 1460 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-12-24T14:08:47.076+02:00  INFO 1460 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-12-24T14:08:47.078+02:00  INFO 1460 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 10
+2024-12-24T14:08:47.081+02:00  INFO 1460 --- [routes] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-12-24T14:08:47.083+02:00  INFO 1460 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1735042127082 with initial instances count: 1
+2024-12-24T14:08:47.091+02:00  INFO 1460 --- [routes] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ROUTES with eureka with status UP
+2024-12-24T14:08:47.092+02:00  INFO 1460 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1735042127092, current=UP, previous=STARTING]
+2024-12-24T14:08:47.095+02:00  INFO 1460 --- [routes] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ROUTES/DESKTOP-NJI510S.mshome.net:routes:8060: registering service...
+2024-12-24T14:08:47.123+02:00  INFO 1460 --- [routes] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8060 (http) with context path '/'
+2024-12-24T14:08:47.125+02:00  INFO 1460 --- [routes] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8060
+2024-12-24T14:08:47.150+02:00  INFO 1460 --- [routes] [restartedMain] com.runner.runs.RunsApplication          : Started RunsApplication in 10.715 seconds (process running for 12.551)
+2024-12-24T14:08:47.158+02:00  INFO 1460 --- [routes] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ROUTES/DESKTOP-NJI510S.mshome.net:routes:8060 - registration status: 204
+2024-12-24T14:08:47.678+02:00  INFO 1460 --- [routes] [restartedMain] com.runner.runs.utils.JsonDataLoader     : Reading 6 runs from JSON data and saving to in-memory collection.
+2024-12-24T14:13:20.724+02:00  INFO 1460 --- [routes] [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application ROUTES with eureka with status DOWN
+2024-12-24T14:13:20.725+02:00  INFO 1460 --- [routes] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1735042400725, current=DOWN, previous=UP]
+2024-12-24T14:13:20.725+02:00  INFO 1460 --- [routes] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ROUTES/DESKTOP-NJI510S.mshome.net:routes:8060: registering service...
+2024-12-24T14:13:20.729+02:00  INFO 1460 --- [routes] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-24T14:13:20.736+02:00  INFO 1460 --- [routes] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-24T14:13:20.746+02:00  INFO 1460 --- [routes] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ROUTES/DESKTOP-NJI510S.mshome.net:routes:8060 - registration status: 204
+2024-12-24T14:13:20.751+02:00  INFO 1460 --- [routes] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T14:13:20.775+02:00  INFO 1460 --- [routes] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-24T14:13:20.784+02:00  INFO 1460 --- [routes] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-24T14:13:20.786+02:00  INFO 1460 --- [routes] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2024-12-24T14:13:23.799+02:00  INFO 1460 --- [routes] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2024-12-24T14:13:23.818+02:00  INFO 1460 --- [routes] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ROUTES/DESKTOP-NJI510S.mshome.net:routes:8060 - deregister  status: 200
+2024-12-24T14:13:23.818+02:00  INFO 1460 --- [routes] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2024-12-24T14:13:28.742+02:00  INFO 21412 --- [routes] [restartedMain] com.runner.runs.RunsApplication          : Starting RunsApplication using Java 21.0.3 with PID 21412 (C:\Users\vaggp\IdeaProjects\recent\spring-boot-microservices-demo\runs\target\classes started by vaggp in C:\Users\vaggp\IdeaProjects\recent\spring-boot-microservices-demo)
+2024-12-24T14:13:28.745+02:00  INFO 21412 --- [routes] [restartedMain] com.runner.runs.RunsApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-12-24T14:13:28.798+02:00  INFO 21412 --- [routes] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-12-24T14:13:28.799+02:00  WARN 21412 --- [routes] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@10c6224b uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): None of labels [] found
+2024-12-24T14:13:28.799+02:00  INFO 21412 --- [routes] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-12-24T14:13:28.799+02:00  WARN 21412 --- [routes] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@7355ac65 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): None of labels [] found
+2024-12-24T14:13:28.799+02:00  INFO 21412 --- [routes] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2024-12-24T14:13:28.800+02:00  WARN 21412 --- [routes] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@65a6ea18 uris = array<String>['http://localhost:8888'], optional = true, profiles = 'default']): None of labels [] found
+2024-12-24T14:13:28.803+02:00  INFO 21412 --- [routes] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-12-24T14:13:28.804+02:00  INFO 21412 --- [routes] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-12-24T14:13:30.289+02:00  INFO 21412 --- [routes] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-24T14:13:30.466+02:00  INFO 21412 --- [routes] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 163 ms. Found 1 JPA repository interface.
+2024-12-24T14:13:30.900+02:00  INFO 21412 --- [routes] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8e08b3f2-0d92-3a1a-bb93-d4789d7a775e
+2024-12-24T14:13:31.892+02:00  INFO 21412 --- [routes] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8060 (http)
+2024-12-24T14:13:31.909+02:00  INFO 21412 --- [routes] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-24T14:13:31.910+02:00  INFO 21412 --- [routes] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.33]
+2024-12-24T14:13:31.980+02:00  INFO 21412 --- [routes] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-24T14:13:31.980+02:00  INFO 21412 --- [routes] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3175 ms
+2024-12-24T14:13:32.492+02:00  INFO 21412 --- [routes] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-24T14:13:32.573+02:00  INFO 21412 --- [routes] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.2.Final
+2024-12-24T14:13:32.624+02:00  INFO 21412 --- [routes] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-24T14:13:33.049+02:00  INFO 21412 --- [routes] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-24T14:13:33.098+02:00  INFO 21412 --- [routes] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-24T14:13:33.277+02:00  INFO 21412 --- [routes] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@13797808
+2024-12-24T14:13:33.280+02:00  INFO 21412 --- [routes] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-24T14:13:33.365+02:00  INFO 21412 --- [routes] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 14.15
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2024-12-24T14:13:34.555+02:00  INFO 21412 --- [routes] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-24T14:13:34.618+02:00  INFO 21412 --- [routes] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T14:13:36.740+02:00  INFO 21412 --- [routes] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-12-24T14:13:36.791+02:00  INFO 21412 --- [routes] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-12-24T14:13:36.922+02:00  WARN 21412 --- [routes] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-12-24T14:13:36.935+02:00  INFO 21412 --- [routes] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-12-24T14:13:37.097+02:00  INFO 21412 --- [routes] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-12-24T14:13:37.129+02:00  INFO 21412 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-12-24T14:13:37.134+02:00  INFO 21412 --- [routes] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-12-24T14:13:37.151+02:00  INFO 21412 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-12-24T14:13:37.152+02:00  INFO 21412 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-12-24T14:13:37.152+02:00  INFO 21412 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-12-24T14:13:37.152+02:00  INFO 21412 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-12-24T14:13:37.152+02:00  INFO 21412 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-12-24T14:13:37.152+02:00  INFO 21412 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-12-24T14:13:37.152+02:00  INFO 21412 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-12-24T14:13:37.566+02:00  INFO 21412 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-12-24T14:13:37.569+02:00  INFO 21412 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 10
+2024-12-24T14:13:37.575+02:00  INFO 21412 --- [routes] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-12-24T14:13:37.588+02:00  INFO 21412 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1735042417587 with initial instances count: 0
+2024-12-24T14:13:37.607+02:00  INFO 21412 --- [routes] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application ROUTES with eureka with status UP
+2024-12-24T14:13:37.608+02:00  INFO 21412 --- [routes] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1735042417608, current=UP, previous=STARTING]
+2024-12-24T14:13:37.611+02:00  INFO 21412 --- [routes] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ROUTES/DESKTOP-NJI510S.mshome.net:routes:8060: registering service...
+2024-12-24T14:13:37.638+02:00  INFO 21412 --- [routes] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8060 (http) with context path '/'
+2024-12-24T14:13:37.639+02:00  INFO 21412 --- [routes] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8060
+2024-12-24T14:13:37.666+02:00  INFO 21412 --- [routes] [restartedMain] com.runner.runs.RunsApplication          : Started RunsApplication in 10.088 seconds (process running for 11.935)
+2024-12-24T14:13:37.679+02:00  INFO 21412 --- [routes] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ROUTES/DESKTOP-NJI510S.mshome.net:routes:8060 - registration status: 204
+2024-12-24T14:13:38.143+02:00  INFO 21412 --- [routes] [restartedMain] com.runner.runs.utils.JsonDataLoader     : Reading 6 runs from JSON data and saving to in-memory collection.
+2024-12-24T14:14:07.575+02:00  INFO 21412 --- [routes] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-12-24T14:14:07.576+02:00  INFO 21412 --- [routes] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-12-24T14:14:07.576+02:00  INFO 21412 --- [routes] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-12-24T14:14:07.576+02:00  INFO 21412 --- [routes] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-12-24T14:14:07.576+02:00  INFO 21412 --- [routes] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-12-24T14:14:07.576+02:00  INFO 21412 --- [routes] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2024-12-24T14:14:07.577+02:00  INFO 21412 --- [routes] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-12-24T14:14:07.610+02:00  INFO 21412 --- [routes] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-12-24T14:15:44.375+02:00  INFO 21412 --- [routes] [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application ROUTES with eureka with status DOWN
+2024-12-24T14:15:44.376+02:00  INFO 21412 --- [routes] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1735042544376, current=DOWN, previous=UP]
+2024-12-24T14:15:44.377+02:00  INFO 21412 --- [routes] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ROUTES/DESKTOP-NJI510S.mshome.net:routes:8060: registering service...
+2024-12-24T14:15:44.382+02:00  INFO 21412 --- [routes] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2024-12-24T14:15:44.391+02:00  INFO 21412 --- [routes] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ROUTES/DESKTOP-NJI510S.mshome.net:routes:8060 - registration status: 204
+2024-12-24T14:15:44.391+02:00  INFO 21412 --- [routes] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2024-12-24T14:15:44.408+02:00  INFO 21412 --- [routes] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T14:15:44.434+02:00  INFO 21412 --- [routes] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-24T14:15:44.446+02:00  INFO 21412 --- [routes] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-24T14:15:44.448+02:00  INFO 21412 --- [routes] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2024-12-24T14:15:47.453+02:00  INFO 21412 --- [routes] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2024-12-24T14:15:47.471+02:00  INFO 21412 --- [routes] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_ROUTES/DESKTOP-NJI510S.mshome.net:routes:8060 - deregister  status: 200
+2024-12-24T14:15:47.471+02:00  INFO 21412 --- [routes] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
