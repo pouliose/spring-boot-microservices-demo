@@ -28,10 +28,16 @@ spring:
       ddl-auto: create-drop
     show-sql: true
 
-  log:
-    level: INFO
-    #file: runs.log
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: runEvents
 
+runs:
+  kafka:
+    topic: run.upload
 logging:
   level:
-    com.runner.routes: DEBUG
+    com.runner.runs: DEBUG
+  file:
+    name: ./runs/logs/runs.log
