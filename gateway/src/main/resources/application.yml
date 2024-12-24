@@ -10,6 +10,10 @@ spring:
           uri: http://localhost:8070
           predicates:
             - Path=/api/v1/users/**
+        - id: statistics
+          uri: http://localhost:8050
+          predicates:
+            - Path=/api/v1/statistics/**
   config:
     import: optional:configserver:http://localhost:8888
 server:

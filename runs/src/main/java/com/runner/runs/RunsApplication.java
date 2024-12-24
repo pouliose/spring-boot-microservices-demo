@@ -15,11 +15,11 @@ public class RunsApplication {
 		SpringApplication.run(RunsApplication.class, args);
 	}
 
-	@KafkaListener(topics = "run.upload")
+	/*@KafkaListener(topics = "run.upload")
 	@Profile("!test")
 	public String listens(final String in) {
 		LOG.debug("In payload {}", in);
 		return in;
-	}
+	}*/
 
 }

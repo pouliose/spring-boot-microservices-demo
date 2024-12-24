@@ -22,7 +22,6 @@ public class RunController {
 
     private static final Logger LOG = LoggerFactory.getLogger(RunController.class);
 
-
     private final RunRepository runRepository;
     private final RunKafkaProducerService runKafkaProducerService;
 
