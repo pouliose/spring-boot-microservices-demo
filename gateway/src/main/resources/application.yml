@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: runs
+          uri: http://localhost:8060
+          predicates:
+            - Path=/api/v1/runs/**
+        - id: users
+          uri: http://localhost:8070
+          predicates:
+            - Path=/api/v1/users/**
+  config:
+    import: optional:configserver:http://localhost:8888
+server:
+  port: 8090
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

@@ -1,0 +1,52 @@
+{
+  "runs": [
+    {
+      "title": "Noon Run",
+      "startedOn": "2024-02-20T06:05:00.000000",
+      "completedOn": "2024-02-20T10:27:00.000000",
+      "miles": 24,
+      "location": "INDOOR",
+      "userId": 1
+    },
+    {
+      "title": "Afternoon Run",
+      "startedOn": "2024-02-22T12:16:00.000000",
+      "completedOn": "2024-02-22T14:27:00.000000",
+      "miles": 6,
+      "location": "OUTDOOR",
+      "userId": 2
+    },
+    {
+      "title": "Dawn Run",
+      "startedOn": "2024-03-06T19:47:00.000000",
+      "completedOn": "2024-03-06T22:06:00.000000",
+      "miles": 19,
+      "location": "INDOOR",
+      "userId": 3
+    },
+    {
+      "title": "Sunset Jog",
+      "startedOn": "2024-03-31T08:32:00.000000",
+      "completedOn": "2024-03-31T12:57:00.000000",
+      "miles": 7,
+      "location": "OUTDOOR",
+      "userId": 4
+    },
+    {
+      "title": "Sunset Jog",
+      "startedOn": "2024-03-01T03:49:00.000000",
+      "completedOn": "2024-03-01T05:58:00.000000",
+      "miles": 11,
+      "location": "INDOOR",
+      "userId": 1
+    },
+    {
+      "title": "Noon Run",
+      "startedOn": "2024-03-02T21:02:00.000000",
+      "completedOn": "2024-03-03T00:36:00.000000",
+      "miles": 3,
+      "location": "INDOOR",
+      "userId": 2
+    }
+  ]
+}

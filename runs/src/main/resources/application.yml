@@ -1,0 +1,37 @@
+eureka:
+  instance:
+    hostname: localhost
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8060
+spring:
+  application:
+    name: routes
+  config:
+    import: optional:configserver:http://localhost:8888
+  datasource:
+    url: jdbc:postgresql://localhost:5433/runs
+    username: myuser
+    password: passwordToChange
+    driver-class-name: org.postgresql.Driver
+    sql:
+      init:
+        data-locations: classpath:loadData.sql
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+  log:
+    level: INFO
+    #file: runs.log
+
+logging:
+  level:
+    com.runner.routes: DEBUG
