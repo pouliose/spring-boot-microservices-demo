@@ -72,6 +72,7 @@ public class RunKafkaConsumerService {
         ranking.setLastRunDateForActiveCalculation(runDate);
         ranking.setTotalRuns(Optional.ofNullable(ranking.getTotalRuns()).orElse(0) + 1);
 
+        LOG.debug("Updating ranking: {}", ranking);
         rankingRepository.save(ranking);
     }
 
