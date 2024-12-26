@@ -7,20 +7,17 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 server:
-  port: 8060
+  port: 8050
 spring:
   application:
-    name: routes
+    name: statistics-service
   config:
     import: optional:configserver:http://localhost:8888
   datasource:
-    url: jdbc:postgresql://localhost:5433/runs
+    url: jdbc:postgresql://localhost:5431/rankings
     username: myuser
     password: passwordToChange
     driver-class-name: org.postgresql.Driver
-    sql:
-      init:
-        data-locations: classpath:loadData.sql
 
   jpa:
     open-in-view: false
@@ -38,6 +35,4 @@ runs:
     topic: run.upload
 logging:
   level:
-    com.runner.runs: DEBUG
-  file:
-    name: ./runs/logs/runs.log
+    com.example.statistics: DEBUG

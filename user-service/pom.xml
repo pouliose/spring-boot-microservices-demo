@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.runner</groupId>
-	<artifactId>users</artifactId>
+	<artifactId>user-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>runs</name>
-	<description>A running app</description>
+	<name>user</name>
+	<description>User service</description>
 	<url/>
 	<licenses>
 		<license/>

@@ -1,13 +1,13 @@
-package com.runner.runs;
+package com.runner.users;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RunsApplication {
+public class UserApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RunsApplication.class, args);
+		SpringApplication.run(UserApplication.class, args);
 	}
 
 }
