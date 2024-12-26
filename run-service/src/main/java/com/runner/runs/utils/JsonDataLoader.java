@@ -1,8 +1,9 @@
-package com.runner.users.utils;
+package com.runner.runs.utils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.runner.users.repositories.UserRepository;
+import com.runner.runs.domain.Runs;
+import com.runner.runs.repositories.RunRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -16,20 +17,20 @@ public class JsonDataLoader implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(JsonDataLoader.class);
     private final ObjectMapper objectMapper;
-    private final UserRepository userRepository;
+    private final RunRepository runRepository;
 
-    public JsonDataLoader(ObjectMapper objectMapper, UserRepository userRepository) {
+    public JsonDataLoader(ObjectMapper objectMapper, RunRepository runRepository) {
         this.objectMapper = objectMapper;
-        this.userRepository = userRepository;
+        this.runRepository = runRepository;
     }
 
     @Override
-    public void run(String... args) throws Exception {
-        if(userRepository.count() == 0) {
-            try (InputStream inputStream = TypeReference.class.getResourceAsStream("/data/users.json")) {
-                com.runner.users.domain.Users users = objectMapper.readValue(inputStream, com.runner.users.domain.Users.class);
-                log.info("Reading {} users from JSON data and saving to in-memory collection.", users.users().size());
-                userRepository.saveAll(users.users());
+    public void run(String... args) {
+        if(runRepository.count() == 0) {
+            try (InputStream inputStream = TypeReference.class.getResourceAsStream("/data/runs.json")) {
+                Runs allRuns = objectMapper.readValue(inputStream, Runs.class);
+                log.info("Reading {} runs from JSON data and saving to in-memory collection.", allRuns.runs().size());
+                runRepository.saveAll(allRuns.runs());
             } catch (IOException e) {
                 throw new RuntimeException("Failed to read JSON data", e);
             }
