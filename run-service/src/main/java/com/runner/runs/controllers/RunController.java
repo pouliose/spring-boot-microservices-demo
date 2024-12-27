@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.runner.runs.domain.Run;
 import com.runner.runs.services.RunService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +38,7 @@ public class RunController {
     }
 
     @GetMapping("/{id}")
-    Run find(@PathVariable Integer id) {
+    Run find(@PathVariable @Positive Integer id) {
         return runService.find(id);
     }
 
