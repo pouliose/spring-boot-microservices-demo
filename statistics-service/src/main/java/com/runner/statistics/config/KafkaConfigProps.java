@@ -1,4 +1,4 @@
-package com.example.statistics.config;
+package com.runner.statistics.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

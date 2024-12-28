@@ -1,4 +1,4 @@
-package com.example.statistics;
+package com.runner.statistics;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

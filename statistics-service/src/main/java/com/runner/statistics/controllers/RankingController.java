@@ -1,7 +1,7 @@
-package com.example.statistics.controllers;
+package com.runner.statistics.controllers;
 
-import com.example.statistics.domain.Ranking;
-import com.example.statistics.repositories.RankingRepository;
+import com.runner.statistics.domain.Ranking;
+import com.runner.statistics.repositories.RankingRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

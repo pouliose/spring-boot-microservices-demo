@@ -1,4 +1,4 @@
-package com.example.statistics.domain;
+package com.runner.statistics.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.example.statistics;
+package com.runner.statistics;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

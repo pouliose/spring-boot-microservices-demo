@@ -1,8 +1,8 @@
-package com.example.statistics.services;
+package com.runner.statistics.services;
 
-import com.example.statistics.domain.Ranking;
-import com.example.statistics.domain.Run;
-import com.example.statistics.repositories.RankingRepository;
+import com.runner.statistics.domain.Ranking;
+import com.runner.statistics.domain.Run;
+import com.runner.statistics.repositories.RankingRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;

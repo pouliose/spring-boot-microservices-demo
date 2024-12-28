@@ -1,6 +1,6 @@
-package com.example.statistics.repositories;
+package com.runner.statistics.repositories;
 
-import com.example.statistics.domain.Ranking;
+import com.runner.statistics.domain.Ranking;
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;

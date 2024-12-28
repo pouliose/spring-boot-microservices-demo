@@ -1,4 +1,4 @@
-package com.example.statistics.config;
+package com.runner.statistics.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;

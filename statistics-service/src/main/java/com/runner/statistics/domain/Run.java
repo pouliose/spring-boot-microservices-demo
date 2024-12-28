@@ -1,4 +1,4 @@
-package com.example.statistics.domain;
+package com.runner.statistics.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
