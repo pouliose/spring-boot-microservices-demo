@@ -21,8 +21,15 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Build run-service with Maven
-      run: mvn -B package --file commons/pom.xml
+    - name: Build commons project
+      run: |
+        cd commons
+        mvn clean package
+
+    - name: Install commons dependency locally
+      run: |
+         mvn install -Dfile='target\commons-1.0.1.jar' -DgroupId='com.runner' -DartifactId='commons' -Dversion='1.0.1' -Dpackaging='jar'
+
       
     - name: Build run-service with Maven
       run: mvn -B package --file run-service/pom.xml
