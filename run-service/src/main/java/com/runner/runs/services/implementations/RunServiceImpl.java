@@ -46,10 +46,12 @@ public class RunServiceImpl implements RunService {
 
     @Override
     public void update(Run run, Integer id) {
+        if (!run.getId().equals(id)) {
+            throw new IllegalArgumentException("ID in the request body does not match the ID in the path parameter");
+        }
         if (!runRepository.existsById(id)) {
             throw new RunNotFoundException();
         }
-        run.setId(id);
         runRepository.save(run);
     }
 
