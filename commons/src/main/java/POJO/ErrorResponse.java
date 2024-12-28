@@ -1,4 +1,4 @@
-package com.runner.runs.exceptions;
+package POJO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @ToString
 public class ErrorResponse {
     private LocalDateTime timestamp;
+    private int statusCode;
     private String message;
     private String details;
 }

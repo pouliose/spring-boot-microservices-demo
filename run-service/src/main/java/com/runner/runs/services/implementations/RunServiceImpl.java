@@ -1,6 +1,5 @@
 package com.runner.runs.services.implementations;
 
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.runner.runs.domain.Run;
 import com.runner.runs.exceptions.RunNotFoundException;
@@ -9,7 +8,10 @@ import com.runner.runs.services.RunService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClient;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +24,7 @@ public class RunServiceImpl implements RunService {
 
     private final RunRepository runRepository;
     private final RunKafkaProducerServiceImpl runKafkaProducerService;
+    private final RestClient restClient;
 
     @Override
     public List<Run> findAll() {
@@ -39,9 +42,24 @@ public class RunServiceImpl implements RunService {
 
     @Override
     public void create(Run run) throws JsonProcessingException {
+        userExists(run.getUserId());
         Run savedRun = runRepository.save(run);
         LOG.debug("Run saved: {}", savedRun);
         runKafkaProducerService.sendRunToKafka(savedRun);
+    }
+
+    private void userExists(Integer userId) {
+        try {
+            ResponseEntity<String> result =
+                    restClient.get().uri("/" + userId).retrieve().toEntity(String.class);
+
+            LOG.debug("User service response: {}", result);
+            if (!result.getStatusCode().equals(HttpStatus.OK)) {
+                throw new RuntimeException("User service returned status code: " + result.getStatusCode());
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
 
     @Override

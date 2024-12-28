@@ -1,4 +1,5 @@
-package com.runner.runs.exceptions;
+package com.runner.users.exceptions;
+
 
 import POJO.ErrorResponse;
 import org.springframework.http.HttpStatus;
@@ -17,8 +18,8 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(RunNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleRunNotFoundException(RunNotFoundException ex, WebRequest request) {
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleRunNotFoundException(UserNotFoundException ex, WebRequest request) {
         ErrorResponse errorResponse = new ErrorResponse(
                 LocalDateTime.now(),
                 HttpStatus.NOT_FOUND.value(),

@@ -36,6 +36,9 @@ spring:
 runs:
   kafka:
     topic: run.upload
+user:
+  service:
+    url: http://localhost:8090/api/v1/users
 logging:
   level:
     com.runner.runs: DEBUG
