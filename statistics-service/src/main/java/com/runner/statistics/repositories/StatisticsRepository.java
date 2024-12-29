@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface RankingRepository extends ListCrudRepository<Ranking, Integer> {
+public interface StatisticsRepository extends ListCrudRepository<Ranking, Integer> {
     Optional<Ranking> findByUserId(Integer userId);
 }

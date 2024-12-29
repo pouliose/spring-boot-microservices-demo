@@ -1,8 +1,8 @@
-package com.runner.statistics.services;
+package com.runner.statistics.services.implementations;
 
 import com.runner.statistics.domain.Ranking;
 import com.runner.statistics.domain.Run;
-import com.runner.statistics.repositories.RankingRepository;
+import com.runner.statistics.repositories.StatisticsRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -20,12 +20,12 @@ public class RunKafkaConsumerService {
 
     private static final Logger LOG = LoggerFactory.getLogger(RunKafkaConsumerService.class);
 
-    private final RankingRepository rankingRepository;
+    private final StatisticsRepository rankingRepository;
 
     private final ObjectMapper objectMapper;
 
     @Autowired
-    public RunKafkaConsumerService(ObjectMapper objectMapper, RankingRepository rankingRepository) {
+    public RunKafkaConsumerService(ObjectMapper objectMapper, StatisticsRepository rankingRepository) {
         this.objectMapper = objectMapper;
         this.rankingRepository = rankingRepository;
     }
