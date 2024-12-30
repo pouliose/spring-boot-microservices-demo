@@ -10,3 +10,6 @@ spring:
       server:
         native:
           search-locations: classpath:/configurations
+#        git:
+#          uri: https://github.com/pouliose/microservices-config
+#          clone-on-start: true

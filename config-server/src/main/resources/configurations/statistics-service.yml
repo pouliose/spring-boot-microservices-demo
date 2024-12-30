@@ -1,18 +1,9 @@
-eureka:
-  instance:
-    hostname: localhost
-    lease-renewal-interval-in-seconds: 10
-    lease-expiration-duration-in-seconds: 30
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
 server:
   port: 8050
 spring:
   application:
     name: statistics-service
-  config:
-    import: optional:configserver:http://localhost:8888
+
   datasource:
     url: jdbc:postgresql://localhost:5431/rankings
     username: myuser
@@ -29,6 +20,15 @@ spring:
     bootstrap-servers: localhost:9092
     consumer:
       group-id: runEvents
+
+eureka:
+  instance:
+    hostname: localhost
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
 
 runs:
   kafka:

@@ -1,0 +1,45 @@
+server:
+  port: 8060
+spring:
+  application:
+    name: run-service
+  datasource:
+    url: jdbc:postgresql://localhost:5433/runs
+    username: myuser
+    password: passwordToChange
+    driver-class-name: org.postgresql.Driver
+    sql:
+      init:
+        data-locations: classpath:loadData.sql
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: runEvents
+
+eureka:
+  instance:
+    hostname: localhost
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+runs:
+  kafka:
+    topic: run.upload
+user:
+  service:
+    url: http://localhost:8090/api/v1/users
+logging:
+  level:
+    com.runner.runs: DEBUG
+  file:
+    name: ./run-service/logs/run-service.log

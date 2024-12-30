@@ -1,15 +1,7 @@
-eureka:
-    instance:
-        hostname: localhost
-    client:
-        registerWithEureka: false
-        fetchRegistry: false
-        serviceUrl:
-            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-server:
-    port: 8761
-    eviction-interval-timer-in-ms: 60000
-    renewal-threshold-update-interval-ms: 60000
 spring:
+    application:
+        name: discovery
     config:
         import: optional:configserver:http://localhost:8888
+    profiles:
+        active: default
