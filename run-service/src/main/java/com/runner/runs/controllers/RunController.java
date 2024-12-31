@@ -11,17 +11,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.PageRequest;
 
 import java.lang.reflect.Field;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @RequestMapping("api/v1/runs")
 @RestController
@@ -33,8 +34,14 @@ public class RunController {
     private final RunService runService;
 
     @GetMapping("")
-    List<Run> findAll() {
-        return runService.findAll();
+    Page<Run> findAll(@RequestParam(defaultValue = "0") int pageNumber,
+                      @RequestParam(defaultValue = "10") int pageSize,
+                      @RequestParam(defaultValue = "id") String sortBy,
+                      @RequestParam(defaultValue = "true") boolean ascending
+    ) {
+        Sort sort = ascending ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
+        return runService.findAll(pageable);
     }
 
     @GetMapping("/{id}")

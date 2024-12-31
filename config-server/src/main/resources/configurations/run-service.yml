@@ -38,6 +38,14 @@ runs:
 user:
   service:
     url: http://localhost:8090/api/v1/users
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+  packagesToScan: com.runner.runs
+  cache:
+    disabled: true
 logging:
   level:
     com.runner.runs: DEBUG
