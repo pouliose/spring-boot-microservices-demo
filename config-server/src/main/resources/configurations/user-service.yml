@@ -14,7 +14,11 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
-
+springdoc:
+  api-docs:
+    path: /user-service/v3/api-docs
+  swagger-ui:
+    path: /user-service/swagger-ui.html
 eureka:
   instance:
     hostname: localhost

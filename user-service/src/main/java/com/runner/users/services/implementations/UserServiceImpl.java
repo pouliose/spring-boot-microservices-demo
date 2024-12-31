@@ -5,8 +5,12 @@ import com.runner.users.exceptions.UserNotFoundException;
 import com.runner.users.repositories.UserRepository;
 import com.runner.users.services.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +21,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        return userRepository.findAll();
+        Iterator<User> iterator = userRepository.findAll().iterator();
+        List<User> users = new ArrayList<>();
+        iterator.forEachRemaining(users::add);
+        return users;
+    }
+
+    @Override
+    public Page<User> findAll(Pageable pageable) {
+        return userRepository.findAll(pageable);
     }
 
     @Override
