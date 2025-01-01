@@ -8,12 +8,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties(prefix = "runs.kafka")
+@ConfigurationProperties(prefix = "notifications.kafka")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class KafkaConfigProps {
+public class NotificationsKafkaConfigProps {
 
     private String topic;
 

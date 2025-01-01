@@ -20,7 +20,12 @@ spring:
     bootstrap-servers: localhost:9092
     consumer:
       group-id: runEvents
-
+runs.upload:
+  kafka:
+    topic: run.upload
+notifications:
+  kafka:
+    topic: midnight.ranking.notification
 eureka:
   instance:
     hostname: localhost
@@ -29,10 +34,12 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+springdoc:
+  api-docs:
+    path: /statistics-service/v3/api-docs
+  swagger-ui:
+    path: /statistics-service/swagger-ui.html
 
-runs:
-  kafka:
-    topic: run.upload
 logging:
   level:
-    com.example.statistics: DEBUG
+    com.runner.statistics: DEBUG

@@ -7,7 +7,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.runner.statistics.services.RunKafkaConsumerService;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -15,21 +15,20 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
-//@AllArgsConstructor
-public class RunKafkaConsumerService {
+public class RunKafkaConsumerServiceImpl implements RunKafkaConsumerService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(RunKafkaConsumerService.class);
+    private static final Logger LOG = LoggerFactory.getLogger(RunKafkaConsumerServiceImpl.class);
 
     private final StatisticsRepository rankingRepository;
 
     private final ObjectMapper objectMapper;
 
-    @Autowired
-    public RunKafkaConsumerService(ObjectMapper objectMapper, StatisticsRepository rankingRepository) {
+    public RunKafkaConsumerServiceImpl(ObjectMapper objectMapper, StatisticsRepository rankingRepository) {
         this.objectMapper = objectMapper;
         this.rankingRepository = rankingRepository;
     }
 
+    @Override
     @KafkaListener(topics = "run.upload")
     public void consumeRunFromKafka(String payload) throws JsonProcessingException {
         LOG.debug("Received payload from Kafka: {}", payload);
