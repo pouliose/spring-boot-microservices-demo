@@ -7,6 +7,8 @@ services:
       - 'POSTGRES_USER=myuser'
     ports:
       - '5433:5432'
+    volumes:
+      - postgres-runs-data:/var/lib/postgresql/data
   postgresUsers:
     image: 'postgres:14.15-alpine3.21'
     environment:
@@ -15,6 +17,8 @@ services:
       - 'POSTGRES_USER=myuser'
     ports:
       - '5432:5432'
+    volumes:
+      - postgres-users-data:/var/lib/postgresql/data
   postgresStatistics:
     image: 'postgres:14.15-alpine3.21'
     environment:
@@ -23,6 +27,19 @@ services:
       - 'POSTGRES_USER=myuser'
     ports:
       - '5431:5432'
+    volumes:
+      - postgres-statistics-data:/var/lib/postgresql/data
+  mongoNotifications:
+    image: mongo:6.0
+    container_name: mongoNotifications
+    ports:
+      - "27017:27017"
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: root
+#      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - mongo-data:/data/db
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.0
     container_name: zookeeper
@@ -47,3 +64,12 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+volumes:
+  postgres-runs-data:
+    driver: local
+  postgres-users-data:
+    driver: local
+  postgres-statistics-data:
+    driver: local
+  mongo-data:
+    driver: local

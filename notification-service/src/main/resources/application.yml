@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: notification-service
+  config:
+    import: optional:configserver:http://localhost:8888
+  profiles:
+    active: default
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: notifications
+#      username: root
+#      password: root
+      #uri: mongodb://root:root@localhost:27017/notifications?authSource=admin
+      #authentication-database: admin
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb: DEBUG
+#            core:
+#              MongoTemplate: DEBUG

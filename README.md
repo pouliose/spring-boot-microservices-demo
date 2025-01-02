@@ -20,11 +20,13 @@ This project consists of multiple Spring Boot applications and supporting servic
 6. Develop a notification application
 7. ~~Implement exception handling~~
 8. Implement JWT and security
-9. Add Swagger documentation to all services
+9. (half completed)Add Swagger documentation to all services
+10. Docker file for each repo, docker compose file on the root
 
 ## Bugs
 
 - ~~Check user existence when a new run is created~~
+- Accessing swagger through the gateway, check https://github.com/peternelson22/sample-springboot-microservices
 
 ## How to Run the Project
 
@@ -36,7 +38,7 @@ This project consists of multiple Spring Boot applications and supporting servic
     ```
 
 3. Start all the applications in the following order:
-  - Config-server
+  - Config-server (Each application configuration is accessible through eg: 'curl http://localhost:8888/run-service/default')
   - Eureka
   - Gateway
   - `run-service`
