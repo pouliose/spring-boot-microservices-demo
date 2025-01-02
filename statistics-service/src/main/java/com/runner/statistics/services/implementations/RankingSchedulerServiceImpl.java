@@ -13,7 +13,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class RankingSchedulerServiceImpl implements RankingSchedulerService {
@@ -30,18 +29,22 @@ public class RankingSchedulerServiceImpl implements RankingSchedulerService {
         this.objectMapper = objectMapper;
     }
 
-    @Scheduled(cron = "0 58 23 * * ?")
+    @Scheduled(cron = "0 */2 * * * ?")
     public void calculateAndPublishNotifications() {
         List<Ranking> rankings = statisticsRepository.findAll();
         rankings.sort((r1, r2) -> r2.getPoints().compareTo(r1.getPoints()));
 
         List<Notification> notifications = rankings.stream()
                 .map(ranking -> {
-                    String message = String.format("Dear runner, your current overall ranking are at position %d over %d participants with points %d",
-                            rankings.indexOf(ranking) + 1, rankings.size(), ranking.getPoints());
+                    String message = String.format("Dear runner, your current overall ranking are at position %d, top %.2f over %d participants with points %d",
+                            rankings.indexOf(ranking) + 1,
+                            calculateOverallRanking(rankings.indexOf(ranking) + 1, rankings.size()),
+                            rankings.size(),
+                            ranking.getPoints()
+                    );
                     return new Notification(ranking.getUserId(), message);
                 })
-                .collect(Collectors.toList());
+                .toList();
 
         notifications.forEach(notification -> {
             try {
@@ -54,8 +57,7 @@ public class RankingSchedulerServiceImpl implements RankingSchedulerService {
         });
     }
 
-    private double calculateImprovement(Ranking ranking) {
-        // Implement your logic to calculate the improvement percentage
-        return 0.0; // Placeholder
+    private double calculateOverallRanking(int currentPosition, int totalParticipants) {
+        return ((double) currentPosition /totalParticipants)*100; // Placeholder
     }
 }
