@@ -2,5 +2,5 @@ package com.runner.statistics.services;
 
 public interface RankingSchedulerService {
 
-    void calculateAndPublishNotifications();
+    void publishUserNotificationForRanking(Integer userId);
 }

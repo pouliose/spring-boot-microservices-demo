@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
@@ -20,6 +21,11 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     public Page<Notification> findAll(Pageable pageable) {
         return notificationRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<Notification> findAll() {
+        return notificationRepository.findAll();
     }
 
     @Override
@@ -39,5 +45,10 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     public Page<Notification> findByUserId(Integer id, Pageable pageable) {
         return notificationRepository.findByUserId(id, pageable);
+    }
+
+    @Override
+    public void delete(String id) {
+        notificationRepository.deleteById(id);
     }
 }
