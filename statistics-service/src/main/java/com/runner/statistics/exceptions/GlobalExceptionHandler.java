@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(RankingNotFoundForUserIdException.class)
-    public ResponseEntity<ErrorResponse> handleRankingNotFoundForUserIdException(RankingNotFoundForUserIdException ex, WebRequest request) {
+    @ExceptionHandler(PointsStatisticsNotFoundForUserIdException.class)
+    public ResponseEntity<ErrorResponse> handlePointsStatisticsNotFoundForUserIdException(PointsStatisticsNotFoundForUserIdException ex, WebRequest request) {
         ErrorResponse errorResponse = new ErrorResponse(
                 LocalDateTime.now(),
                 HttpStatus.NOT_FOUND.value(),

@@ -1,10 +1,11 @@
 package com.runner.statistics.services.implementations;
 
-import com.runner.statistics.domain.Ranking;
+import com.runner.statistics.domain.PointsStatistics;
 import com.runner.statistics.domain.Run;
-import com.runner.statistics.repositories.StatisticsRepository;
+import com.runner.statistics.repositories.PointsStatisticsRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.runner.statistics.services.RunKafkaConsumerService;
@@ -14,19 +15,17 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.Optional;
 
+@AllArgsConstructor
 @Service
 public class RunKafkaConsumerServiceImpl implements RunKafkaConsumerService {
 
     private static final Logger LOG = LoggerFactory.getLogger(RunKafkaConsumerServiceImpl.class);
 
-    private final StatisticsRepository rankingRepository;
+    private final PointsStatisticsRepository rankingRepository;
+
+    private final RankingSchedulerServiceImpl rankingSchedulerService;
 
     private final ObjectMapper objectMapper;
-
-    public RunKafkaConsumerServiceImpl(ObjectMapper objectMapper, StatisticsRepository rankingRepository) {
-        this.objectMapper = objectMapper;
-        this.rankingRepository = rankingRepository;
-    }
 
     @Override
     @KafkaListener(topics = "run.upload")
@@ -36,43 +35,46 @@ public class RunKafkaConsumerServiceImpl implements RunKafkaConsumerService {
         Run run = objectMapper.readValue(payload, Run.class);
         LOG.debug("Deserialized run: {}", run);
 
-        updateRanking(run);
+        updatePointsStatistics(run);
+
+        rankingSchedulerService.publishUserNotificationForRanking(run.getUserId());
+
     }
 
-    private void updateRanking(Run run) {
-        Ranking ranking = rankingRepository.findByUserId(run.getUserId()).orElseGet(() -> {
-            Ranking newRanking = new Ranking();
-            newRanking.setUserId(run.getUserId());
-            return newRanking;
+    private void updatePointsStatistics(Run run) {
+        PointsStatistics pointsStatistics = rankingRepository.findByUserId(run.getUserId()).orElseGet(() -> {
+            PointsStatistics newPointsStatistics = new PointsStatistics();
+            newPointsStatistics.setUserId(run.getUserId());
+            return newPointsStatistics;
         });
 
         LocalDate runDate = run.getCompletedOn().toLocalDate();
-        LocalDate lastRunDate = ranking.getLastRunDateForActiveCalculation();
+        LocalDate lastRunDate = pointsStatistics.getLastRunDateForActiveCalculation();
 
         if (lastRunDate != null && runDate.isEqual(lastRunDate.plusDays(1))) {
-            ranking.setCounterOf5ActiveDaysWithoutDayOff(ranking.getCounterOf5ActiveDaysWithoutDayOff() + 1);
-            ranking.setCounterOf15ActiveDaysWithoutDayOff(ranking.getCounterOf15ActiveDaysWithoutDayOff() + 1);
+            pointsStatistics.setCounterOf5ActiveDaysWithoutDayOff(pointsStatistics.getCounterOf5ActiveDaysWithoutDayOff() + 1);
+            pointsStatistics.setCounterOf15ActiveDaysWithoutDayOff(pointsStatistics.getCounterOf15ActiveDaysWithoutDayOff() + 1);
         } else {
-            ranking.setCounterOf5ActiveDaysWithoutDayOff(1);
-            ranking.setCounterOf15ActiveDaysWithoutDayOff(1);
+            pointsStatistics.setCounterOf5ActiveDaysWithoutDayOff(1);
+            pointsStatistics.setCounterOf15ActiveDaysWithoutDayOff(1);
         }
 
-        if (ranking.getCounterOf15ActiveDaysWithoutDayOff() == 15) {
-            ranking.setPoints(ranking.getPoints() + 800);
-            ranking.setCounterOf15ActiveDaysWithoutDayOff(0);
-            ranking.setCounterOf5ActiveDaysWithoutDayOff(0);
-        } else if (ranking.getCounterOf5ActiveDaysWithoutDayOff() == 5) {
-            ranking.setPoints(ranking.getPoints() + 100);
-            ranking.setCounterOf5ActiveDaysWithoutDayOff(0);
+        if (pointsStatistics.getCounterOf15ActiveDaysWithoutDayOff() == 15) {
+            pointsStatistics.setPoints(pointsStatistics.getPoints() + 800);
+            pointsStatistics.setCounterOf15ActiveDaysWithoutDayOff(0);
+            pointsStatistics.setCounterOf5ActiveDaysWithoutDayOff(0);
+        } else if (pointsStatistics.getCounterOf5ActiveDaysWithoutDayOff() == 5) {
+            pointsStatistics.setPoints(pointsStatistics.getPoints() + 100);
+            pointsStatistics.setCounterOf5ActiveDaysWithoutDayOff(0);
         } else {
-            ranking.setPoints(Optional.ofNullable(ranking.getPoints()).orElse(0) + 1);
+            pointsStatistics.setPoints(Optional.ofNullable(pointsStatistics.getPoints()).orElse(0) + 1);
         }
 
-        ranking.setLastRunDateForActiveCalculation(runDate);
-        ranking.setTotalRuns(Optional.ofNullable(ranking.getTotalRuns()).orElse(0) + 1);
+        pointsStatistics.setLastRunDateForActiveCalculation(runDate);
+        pointsStatistics.setTotalRuns(Optional.ofNullable(pointsStatistics.getTotalRuns()).orElse(0) + 1);
 
-        LOG.debug("Updating ranking: {}", ranking);
-        rankingRepository.save(ranking);
+        LOG.debug("Updating points statistics: {}", pointsStatistics);
+        rankingRepository.save(pointsStatistics);
     }
 
 }
