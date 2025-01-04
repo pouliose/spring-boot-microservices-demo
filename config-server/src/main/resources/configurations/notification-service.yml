@@ -3,6 +3,15 @@ server:
 spring:
   application:
     name: notification-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: notifications
+      username: root
+      password: example
+      #    uri: mongodb://root:example@localhost:27017/notifications?authSource=admin
+      authentication-database: admin
 
   kafka:
     bootstrap-servers: localhost:9092
@@ -24,7 +33,12 @@ springdoc:
     path: /notification-service/v3/api-docs
   swagger-ui:
     path: /notification-service/swagger-ui.html
-
 logging:
   level:
     com.runner.notification: DEBUG
+    org:
+      springframework:
+        data:
+          mongodb: DEBUG
+          core:
+            MongoTemplate: DEBUG

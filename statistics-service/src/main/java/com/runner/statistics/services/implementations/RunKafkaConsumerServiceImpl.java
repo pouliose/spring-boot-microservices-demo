@@ -23,7 +23,7 @@ public class RunKafkaConsumerServiceImpl implements RunKafkaConsumerService {
 
     private final PointsStatisticsRepository rankingRepository;
 
-    private final RankingSchedulerServiceImpl rankingSchedulerService;
+    private final RankingNotificationHandlerServiceImpl rankingSchedulerService;
 
     private final ObjectMapper objectMapper;
 

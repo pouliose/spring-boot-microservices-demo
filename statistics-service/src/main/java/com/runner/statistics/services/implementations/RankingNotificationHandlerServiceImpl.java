@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.runner.statistics.domain.PointsStatistics;
 import com.runner.statistics.repositories.PointsStatisticsRepository;
-import com.runner.statistics.services.RankingSchedulerService;
+import com.runner.statistics.services.RankingNotificationHandlerService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,9 +16,9 @@ import java.util.List;
 
 @AllArgsConstructor
 @Service
-public class RankingSchedulerServiceImpl implements RankingSchedulerService {
+public class RankingNotificationHandlerServiceImpl implements RankingNotificationHandlerService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(RankingSchedulerServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(RankingNotificationHandlerServiceImpl.class);
 
     private final PointsStatisticsRepository statisticsRepository;
     private final KafkaTemplate<String, Object> kafkaTemplate;
@@ -31,7 +31,7 @@ public class RankingSchedulerServiceImpl implements RankingSchedulerService {
 
         List<Notification> notifications = pointsStatistics.stream().filter(ranking -> ranking.getUserId().equals(userId))
                 .map(ranking -> {
-                    String message = String.format("Dear runner, your current overall ranking are at position %d, top %.2f over %d participants with points %d",
+                    String message = String.format("Dear runner, your current overall ranking are at position %d, top %.2f over %d participants with points %d.",
                             pointsStatistics.indexOf(ranking) + 1,
                             calculateOverallRanking(pointsStatistics.indexOf(ranking) + 1, pointsStatistics.size()),
                             pointsStatistics.size(),
