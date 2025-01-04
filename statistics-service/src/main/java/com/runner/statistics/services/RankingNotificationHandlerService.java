@@ -1,6 +1,6 @@
 package com.runner.statistics.services;
 
-public interface RankingSchedulerService {
+public interface RankingNotificationHandlerService {
 
     void publishUserNotificationForRanking(Integer userId);
 }
