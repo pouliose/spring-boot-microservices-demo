@@ -18,14 +18,31 @@ spring:
           uri: http://localhost:8070
           predicates:
             - Path=/api/v1/users/**
+        - id: user-service-swagger
+          uri: http://localhost:8070
+          predicates:
+            - Path=/user-service/**
         - id: statistics-service
           uri: http://localhost:8050
           predicates:
             - Path=/api/v1/statistics/**
-        - id: notifications-service
+        - id: statistics-service-swagger
+          uri: http://localhost:8050
+          predicates:
+            - Path=/statistics-service/**
+        - id: notification-service
           uri: http://localhost:8040
           predicates:
             - Path=/api/v1/notifications/**
+        - id: notification-service-swagger
+          uri: http://localhost:8040
+          predicates:
+            - Path=/notification-service/**
+springdoc:
+  api-docs:
+    path: /gateway/v3/api-docs
+  swagger-ui:
+    path: /gateway/swagger-ui.html
 management:
   endpoints:
     web:
