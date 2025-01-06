@@ -49,7 +49,8 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongoNotifications:27017/
-      ME_CONFIG_BASICAUTH: false
+      ME_CONFIG_BASICAUTH_USERNAME: newuser
+      ME_CONFIG_BASICAUTH_PASSWORD: newpassword
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.0
     container_name: zookeeper
