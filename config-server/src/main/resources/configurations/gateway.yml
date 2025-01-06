@@ -38,11 +38,6 @@ spring:
           uri: http://localhost:8040
           predicates:
             - Path=/notification-service/**
-springdoc:
-  api-docs:
-    path: /gateway/v3/api-docs
-  swagger-ui:
-    path: /gateway/swagger-ui.html
 management:
   endpoints:
     web:
