@@ -2,45 +2,45 @@
 
 This project consists of multiple Spring Boot applications and supporting services. Its main goal is to provide a platform for tracking runs and ranking users based on their performance.
 
-- **`run-service`**: Manages operations regarding run tracking.
-- **`user-service`**: Manages operations related to the users of the application.
-- **`statistics-service`**: Consumes Kafka topics for new runs and updates user rankings.
+- **`run-service`**: Manages operations regarding run tracking. Every time a run is posted, that is published in a Kafka topic. Postgres is used to store the runs.
+- **`user-service`**: Manages operations related to the users of the application. Postgres is used to store the users.
+- **`statistics-service`**: Consumes Kafka topic for new runs, updates the corresponding user's points statistics and publish a notification in a  Kafka topic regarding the current user ranking among all users. Postgres is used to store the point statistics.
+- **`notification-service`**: Consumes Kafka topic for new ranking notifications. Persists the notification in a MongoDB database and notifies the user.
 - **Discovery Server (Eureka)**: Registers and discovers services.
 - **Gateway Server**: Routes requests to the appropriate services.
 - **Configuration Server**: Centralizes configuration for all services.
 
+#### Technologies
+- **Spring Boot**: Framework for creating standalone Java applications.
+- **Eureka**: Service discovery server.
+- **Config Server**: Centralized configuration.
+- **Kafka**: Distributed event streaming platform.
+- **OpenApi**: API documentation.
+- **Docker**: Containerization platform.
+- **Postgres**: Relational database.
+- **MongoDB**: NoSQL database.
+- **Java 21**, **Maven**
 
-## Tasks To Do
-
-1. ~~Move each project configuration to the configuration server~~
-2. Externalize `Run` class to a common repository
-3. ~~Apply dependency inversion and controller advice to other services~~
-4. Use MongoDB for the ranking model
-5. Create a utility class to convert entities to DTOs
-6. Develop a notification application
-7. ~~Implement exception handling~~
-8. Implement JWT and security
-9. (half completed)Add Swagger documentation to all services
-10. Docker file for each repo, docker compose file on the root
-
-## Bugs
-
-- ~~Check user existence when a new run is created~~
-- Accessing swagger through the gateway, check https://github.com/peternelson22/sample-springboot-microservices
+#### Other Project details
+- The dbs persist data in the volume `data` folder after restart.
+- Access mongoDB with `http://localhost:8081/` and the credentials `newuser` and `newpassword`.
+- Access the service open API documentation through gateway, with eg:  `http://localhost:8090/serviceYouTarget/swagger-ui/index.html`, `http://localhost:8090/serviceYouTarget/v3/api-docs`. serviceYouTarget: run-service, user-service, statistics-service, notification-service
 
 ## How to Run the Project
 
 1. Clone the project repository.
-2. Start the Docker Compose file:
+2. Install docker desktop (https://docs.docker.com/desktop/setup/install/windows-install/), includes docker compose, start the program and make sure it is running.
+3. Start the Docker Compose file:
 
     ```bash
     docker-compose up
     ```
-
-3. Start all the applications in the following order:
+4. Start all the applications in the following order:
   - Config-server (Each application configuration is accessible through eg: 'curl http://localhost:8888/run-service/default')
   - Eureka
   - Gateway
   - `run-service`
   - `user-service`
   - `statistics-service`
+  - `notification-service`
+5. Access the services through the gateway, eg: `http://localhost:8090/run-service/swagger-ui/index.html`
