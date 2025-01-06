@@ -6,12 +6,6 @@ on:
   pull_request:
     branches: [ "dev" ]
 
-permissions:
-  contents: read
-  issues: write
-  pull-requests: write
-  security-events: write
-
 jobs:
   build:
 
