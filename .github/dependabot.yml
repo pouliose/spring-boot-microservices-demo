@@ -29,3 +29,7 @@ updates:
     directory: "/statistics-service"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "maven"
+    directory: "/notification-service"
+    schedule:
+      interval: "weekly"
