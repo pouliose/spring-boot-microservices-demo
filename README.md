@@ -23,8 +23,10 @@ This project consists of multiple Spring Boot applications and supporting servic
 
 #### Other Project details
 - The dbs persist data in the volume `data` folder after restart.
-- Access mongoDB with `http://localhost:8081/` and the credentials `newuser` and `newpassword`.
-- Access the service open API documentation through gateway, with eg:  `http://localhost:8090/serviceYouTarget/swagger-ui/index.html`, `http://localhost:8090/serviceYouTarget/v3/api-docs`. serviceYouTarget: run-service, user-service, statistics-service, notification-service
+- Access mongoDB with: `http://localhost:8081/` and the credentials `newuser` and `newpassword`.
+- Access the service open API documentation through gateway, with eg: `http://localhost:8090/serviceYouTarget/swagger-ui/index.html`, `http://localhost:8090/serviceYouTarget/v3/api-docs`. serviceYouTarget: run-service, user-service, statistics-service, notification-service
+- Access the registered services on Eureka server by: http://localhost:8761/
+
 
 ## How to Run the Project
 
