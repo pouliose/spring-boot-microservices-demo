@@ -29,6 +29,7 @@ eureka:
     hostname: localhost
     lease-renewal-interval-in-seconds: 10
     lease-expiration-duration-in-seconds: 30
+    prefer-ip-address: true
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
@@ -37,6 +38,18 @@ eureka:
 user:
   service:
     url: http://localhost:8090/api/v1/users
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    db:
+      enabled: true
+    diskspace:
+      enabled: true
+    ping:
+      enabled: true
 springdoc:
   api-docs:
     path: /run-service/v3/api-docs

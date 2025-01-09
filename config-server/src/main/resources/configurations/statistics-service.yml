@@ -2,7 +2,7 @@ server:
   port: 8050
 spring:
   application:
-    name: statistics-service
+    name: STATISTICS-SERVICE
 
   datasource:
     url: jdbc:postgresql://localhost:5431/rankings
@@ -39,7 +39,11 @@ springdoc:
     path: /statistics-service/v3/api-docs
   swagger-ui:
     path: /statistics-service/swagger-ui.html
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 logging:
   level:
     com.runner.statistics: DEBUG

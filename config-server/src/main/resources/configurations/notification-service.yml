@@ -2,7 +2,7 @@ server:
   port: 8040
 spring:
   application:
-    name: notification-service
+    name: NOTIFICATION-SERVICE
   data:
     mongodb:
       host: localhost
@@ -33,6 +33,11 @@ springdoc:
     path: /notification-service/v3/api-docs
   swagger-ui:
     path: /notification-service/swagger-ui.html
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 logging:
   level:
     com.runner.notification: DEBUG
