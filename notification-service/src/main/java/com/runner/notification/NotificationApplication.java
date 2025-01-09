@@ -5,10 +5,12 @@ import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @OpenAPIDefinition(info =
 @Info(title = "Notification Service API", version = "1.0", description = "Notification Service API v1.0")
 )
+@EnableDiscoveryClient
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class NotificationApplication {
 
