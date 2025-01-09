@@ -2,7 +2,7 @@ server:
   port: 8050
 spring:
   application:
-    name: STATISTICS-SERVICE
+    name: statistics-service
 
   datasource:
     url: jdbc:postgresql://localhost:5431/rankings

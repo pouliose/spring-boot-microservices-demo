@@ -2,7 +2,7 @@ server:
   port: 8040
 spring:
   application:
-    name: NOTIFICATION-SERVICE
+    name: notification-service
   data:
     mongodb:
       host: localhost
