@@ -28,7 +28,22 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 management:
+  tracing:
+    sampling:
+      probability: 1.0
   endpoints:
     web:
       exposure:
-        include: "*"
+#        include: "*"
+          include: prometheus
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+logging:
+  level:
+    com.runner.users: DEBUG
+  pattern:
+    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'

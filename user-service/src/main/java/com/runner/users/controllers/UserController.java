@@ -1,8 +1,13 @@
 package com.runner.users.controllers;
 
 import com.runner.users.domain.User;
-import com.runner.users.repositories.UserRepository;
+import com.runner.users.services.UserService;
+import io.micrometer.observation.annotation.Observed;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -10,17 +15,15 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
+@AllArgsConstructor
 @RequestMapping("api/v1/users")
 @RestController
+@Slf4j
 public class UserController {
 
-    private final UserRepository userRepository;
+    private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private final UserService userService;
 
     @GetMapping("")
     Page<User> findAll(@RequestParam(defaultValue = "0") int pageNumber,
@@ -30,33 +33,35 @@ public class UserController {
     ) {
         Sort sort = ascending ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
         Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
-        return userRepository.findAll(pageable);
+        return userService.findAll(pageable);
     }
 
+    @Observed(
+            name = "user.name",
+            contextualName = "user-service-->end",
+            lowCardinalityKeyValues = {"userType", "userType2"}
+    )
     @GetMapping("/{id}")
-    User find(@PathVariable Integer id){
-        Optional<User> run = userRepository.findById(id);
-        if(run.isEmpty()){
-            throw new com.runner.users.exceptions.UserNotFoundException();
-        }
-        return run.get();
+    User find(@PathVariable Integer id) {
+        LOG.debug("Searching for user with {}", id);
+        return userService.find(id);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    void create(@Valid @RequestBody User run){
-        userRepository.save(run);
+    void create(@Valid @RequestBody User user) {
+        userService.create(user);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    void update(@Valid @RequestBody User run, @PathVariable Integer id){
-        userRepository.save(run);
+    void update(@Valid @RequestBody User user, @PathVariable Integer id) {
+        userService.update(user, id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
-    void delete(@PathVariable Integer id){
-        userRepository.deleteById(userRepository.findById(id).orElseThrow(com.runner.users.exceptions.UserNotFoundException::new).getId());
+    void delete(@PathVariable Integer id) {
+        userService.delete(id);
     }
 }

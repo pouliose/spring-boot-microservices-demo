@@ -3,9 +3,11 @@ package com.runner.runs.controllers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.runner.runs.domain.Run;
 import com.runner.runs.services.RunService;
+import io.micrometer.observation.annotation.Observed;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -27,6 +29,7 @@ import java.util.*;
 @RequestMapping("api/v1/runs")
 @RestController
 @AllArgsConstructor
+@Slf4j
 public class RunController {
 
     private static final Logger LOG = LoggerFactory.getLogger(RunController.class);
@@ -51,7 +54,13 @@ public class RunController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
+    @Observed(
+            name = "user.name",
+            contextualName = "run-service-->user-service",
+            lowCardinalityKeyValues = {"userType", "userType2"}
+    )
     void create(@Valid @RequestBody Run run) throws JsonProcessingException {
+        LOG.debug("creation of run");
         runService.create(run);
     }
 

@@ -9,6 +9,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,6 +20,9 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
+
+    private static final Logger LOG = LoggerFactory.getLogger(UserServiceImpl.class);
+
     private final UserRepository userRepository;
 
     @Override
@@ -34,27 +40,27 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User find(Integer id) {
-        Optional<User> run = userRepository.findById(id);
-        if (run.isEmpty()) {
+        Optional<User> user = userRepository.findById(id);
+        if (user.isEmpty()) {
             throw new UserNotFoundException();
         }
-        return run.get();
+        return user.get();
     }
 
     @Override
-    public void create(User run) {
-        userRepository.save(run);
+    public void create(User user) {
+        userRepository.save(user);
     }
 
     @Override
-    public void update(User run, Integer id) {
-        if (!run.getId().equals(id)) {
+    public void update(User user, Integer id) {
+        if (!user.getId().equals(id)) {
             throw new IllegalArgumentException("ID in the request body does not match the ID in the path parameter");
         }
         if (!userRepository.existsById(id)) {
             throw new UserNotFoundException();
         }
-        userRepository.save(run);
+        userRepository.save(user);
     }
 
     @Override
