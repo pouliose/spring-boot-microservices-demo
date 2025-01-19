@@ -40,10 +40,26 @@ springdoc:
   swagger-ui:
     path: /statistics-service/swagger-ui.html
 management:
+  tracing:
+    enabled: true
+    sampling:
+      probability: 1.0
   endpoints:
     web:
       exposure:
         include: "*"
+  #        include: prometheus
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+    export:
+      simple:
+        enabled: true
 logging:
   level:
     com.runner.statistics: DEBUG
+  pattern:
+    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'

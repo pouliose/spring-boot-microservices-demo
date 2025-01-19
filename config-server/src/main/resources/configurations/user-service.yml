@@ -31,11 +31,13 @@ management:
   tracing:
     sampling:
       probability: 1.0
+    zipkin:
+      endpoint: http://localhost:9411/api/v2/spans
   endpoints:
     web:
       exposure:
-#        include: "*"
-          include: prometheus
+        include: "*"
+#          include: prometheus
   metrics:
     distribution:
       percentiles-histogram:

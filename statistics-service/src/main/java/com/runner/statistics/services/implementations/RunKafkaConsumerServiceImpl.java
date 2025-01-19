@@ -5,7 +5,9 @@ import com.runner.statistics.domain.Run;
 import com.runner.statistics.repositories.PointsStatisticsRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.micrometer.observation.annotation.Observed;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.runner.statistics.services.RunKafkaConsumerService;
@@ -16,6 +18,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 @AllArgsConstructor
+@Slf4j
 @Service
 public class RunKafkaConsumerServiceImpl implements RunKafkaConsumerService {
 
@@ -28,6 +31,10 @@ public class RunKafkaConsumerServiceImpl implements RunKafkaConsumerService {
     private final ObjectMapper objectMapper;
 
     @Override
+
+    @Observed(name = "statistics.name",
+            contextualName = "statistics-service-->notification-service",
+            lowCardinalityKeyValues = {"userType", "userType2"})
     @KafkaListener(topics = "run.upload")
     public void consumeRunFromKafka(String payload) throws JsonProcessingException {
         LOG.debug("Received payload from Kafka: {}", payload);

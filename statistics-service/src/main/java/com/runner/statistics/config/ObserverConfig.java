@@ -1,4 +1,4 @@
-package com.runner.runs.config;
+package com.runner.statistics.config;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
@@ -9,18 +9,18 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration(proxyBeanMethods = false)
 public class ObserverConfig {
-//    @Bean
-//    public MeterRegistry meterRegistry() {
-//        return new SimpleMeterRegistry();
-//    }
+    @Bean
+    public MeterRegistry meterRegistry() {
+        return new SimpleMeterRegistry();
+    }
 
-//    @Bean
+    @Bean
    /* public ObservationRegistry observationRegistry(MeterRegistry meterRegistry) {
         return ObservationRegistry.create(meterRegistry);
     }*/
-//    public ObservationRegistry observationRegistry() {
-//        return ObservationRegistry.create();
-//    }
+    public ObservationRegistry observationRegistry() {
+        return ObservationRegistry.create();
+    }
 
     @Bean
     ObservedAspect observedAspect(ObservationRegistry observationRegistry) {

@@ -15,6 +15,7 @@ This project consists of multiple Spring Boot applications and supporting servic
 - **Eureka**: Service discovery server.
 - **Config Server**: Centralized configuration.
 - **Kafka**: Distributed event streaming platform.
+- **Zipkin**: Distributed tracing system. By collecting data from the spring boot applications that are using micrometer.
 - **OpenApi**: API documentation.
 - **Docker**: Containerization platform.
 - **Postgres**: Relational database.
@@ -31,6 +32,7 @@ This project consists of multiple Spring Boot applications and supporting servic
    - localhost:xxx/actuator/metrics/http.client.requests
    - localhost:xxx/actuator/metrics/disk.total
 - Access the registered services on Eureka server by: http://localhost:8761/
+- Access Zipkin for tracing by: http://localhost:9411/zipkin/
 
 
 ## How to Run the Project
