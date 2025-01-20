@@ -32,7 +32,7 @@ This project consists of multiple Spring Boot applications and supporting servic
    - localhost:xxx/actuator/metrics/http.client.requests
    - localhost:xxx/actuator/metrics/disk.total
 - Access the registered services on Eureka server by: http://localhost:8761/
-- Access Zipkin for tracing by: http://localhost:9411/zipkin/
+- Access Zipkin for tracing by: http://localhost:9411/zipkin/, ![like](readmeFiles/tracingInInZipkin.png)
 
 
 ## How to Run the Project
