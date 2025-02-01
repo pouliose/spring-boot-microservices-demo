@@ -1,0 +1,585 @@
+{
+	"info": {
+		"_postman_id": "8f8a963f-d227-468c-9b70-c6aaf11f1bb2",
+		"name": "RunningApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16600743"
+	},
+	"item": [
+		{
+			"name": "Run",
+			"item": [
+				{
+					"name": "GetRuns",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/runs?pageNumber=0&pageSize=8&ascending=true",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"runs"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "8"
+								},
+								{
+									"key": "sortBy",
+									"value": "miles",
+									"disabled": true
+								},
+								{
+									"key": "ascending",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRun",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoidGVzdFVzZXIiLCJleHAiOjE3Mzg0MDE3NDksImlhdCI6MTczODM5ODE0OSwic2NvcGUiOiJyZWFkIn0.Gou-E8ryrJx3ZFG88yq3pskX3F2IA_7TttV9BG_ewhKQ-tMMEg8wcoWmmUGBZuQFjz0kDHIlKXt8GW30prKrlgaj-gc2rnqvi67VHwQkyuWB7Gq_yO0xokUfzqUIg5u6MH4x-iODB92-K5o38UoIw57hFxq_9wUqmJFdw-V0rC3Acu9ukHp4Nmx-DkcLpplHL1buWY71Mw41aL7T1KRa6cSYQL_UXMQ5LT-DAMgGVMaxzPh6V4Lo0jb78UZyaXs-kh-9P3FpQsA8oYvUcSaDcvYT0xCcB5hG6iUFL3hqHpil0UqzlTn-XjU1aUVWOeflvUOY_aoa1Owu6J1mjChwFQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/runs/1",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"runs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Full Run",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"Test\",\r\n    \"startedOn\": \"2024-02-20T06:05:00\",\r\n    \"completedOn\": \"2024-02-20T10:27:00\",\r\n    \"miles\": 1,\r\n    \"location\": \"INDOOR\",\r\n    \"userId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/runs/1",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"runs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Run",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/runs/2",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"runs",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post RunWithUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"test\",\r\n  \"startedOn\": \"2024-10-09T06:30:00\",\r\n  \"completedOn\": \"2024-10-09T07:30:00\",\r\n  \"miles\": 5,\r\n  \"location\": \"OUTDOOR\",\r\n  \"userId\":  \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/runs",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"runs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetRunsForUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/runs/user/1",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"runs",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Partially Run",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"id\": 2,\r\n    \"title\": \"Test Run\",\r\n    \"startedOn\": \"2025-02-22T12:16:00\",\r\n    \"completedOn\": \"2025-02-22T14:27:00\",\r\n    \"userId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/runs/1",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"runs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Swagger",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8090/v3/api-docs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"v3",
+								"api-docs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateToken",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "testUser",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/runs/token",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"runs",
+								"token"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "miles",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GetUsers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/users",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/users/2",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"TestName\",\r\n    \"lastName\": \"TestSurname\",\r\n    \"email\": \"user@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/users",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/users/2",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Statistics",
+			"item": [
+				{
+					"name": "GetRankings",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/statistics",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"statistics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ranking",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/statistics/users/2",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"statistics",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "GetNotifications",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/notifications",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Notification",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/notifications/users/2",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"notifications",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Notification",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhostGateway}}/notifications/6778590ed0710137bd80474e",
+							"host": [
+								"{{localhostGateway}}"
+							],
+							"path": [
+								"notifications",
+								"6778590ed0710137bd80474e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "localhost8090",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "localhostGateway",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "gatewayRoot",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
