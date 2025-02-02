@@ -35,3 +35,4 @@ build/
 # Log files
 logs/
 *.log
+/src/main/resources/certs/private.pem

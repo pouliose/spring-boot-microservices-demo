@@ -16,6 +16,7 @@ This project consists of multiple Spring Boot applications and supporting servic
 - **Config Server**: Centralized configuration.
 - **Kafka**: Distributed event streaming platform.
 - **Zipkin**: Distributed tracing system. By collecting data from the spring boot applications that are using micrometer.
+- Spring Security and JWT: Security and authentication.
 - **OpenApi**: API documentation.
 - **Docker**: Containerization platform.
 - **Postgres**: Relational database.
@@ -32,6 +33,8 @@ This project consists of multiple Spring Boot applications and supporting servic
    - localhost:xxx/actuator/metrics/http.client.requests
    - localhost:xxx/actuator/metrics/disk.total
 - Access the registered services on Eureka server by: http://localhost:8761/
+- The run-service has implemented security with JWT
+- Endpoints can be accesses through the Postman collection in the folder `readmeFiles`
 - Access Zipkin for tracing by: http://localhost:9411/zipkin/, ![like](readmeFiles/tracingInInZipkin.png)
 
 
@@ -53,3 +56,17 @@ This project consists of multiple Spring Boot applications and supporting servic
   - `statistics-service`
   - `notification-service`
 5. Access the services through the gateway, eg: `http://localhost:8090/run-service/swagger-ui/index.html`
+6. Creating private and public keys
+   Create private key
+   ```bash
+   openssl genrsa -out keypair.pem 2048
+    ```
+   Create public key
+    ```bash
+   openssl rsa -in keypair.pem -pubout -out public.pem
+    ```
+   Private key in format pem
+    ```bash
+   openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in keypair.pem -out private.pem
+   ```
+   file keypair.pem no longer is needed
