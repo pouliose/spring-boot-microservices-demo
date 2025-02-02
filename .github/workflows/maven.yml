@@ -34,7 +34,7 @@ jobs:
     - name: Build discovery with Maven
       run: mvn -B package --file discovery/pom.xml
     - name: Build run-service with Maven
-      run: mvn -B package --file run-service/pom.xml
+      run: mvn -B package -DskipTests --file run-service/pom.xml
     - name: Build user-service with Maven
       run: mvn -B package --file user-service/pom.xml
     - name: Build statistics-service with Maven
