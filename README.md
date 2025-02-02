@@ -56,3 +56,17 @@ This project consists of multiple Spring Boot applications and supporting servic
   - `statistics-service`
   - `notification-service`
 5. Access the services through the gateway, eg: `http://localhost:8090/run-service/swagger-ui/index.html`
+6. Creating private and public keys
+   Create private key
+   ```bash
+   openssl genrsa -out keypair.pem 2048
+    ```
+   Create public key
+    ```bash
+   openssl rsa -in keypair.pem -pubout -out public.pem
+    ```
+   Private key in format pem
+    ```bash
+   openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in keypair.pem -out private.pem
+   ```
+   file keypair.pem no longer is needed
