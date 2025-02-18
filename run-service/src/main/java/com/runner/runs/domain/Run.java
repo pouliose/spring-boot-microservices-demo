@@ -40,7 +40,4 @@ public class Run {
     @NotNull
     private Integer userId;
 
-   /* @Version
-    private Integer version;*/
-
 }

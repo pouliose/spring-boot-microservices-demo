@@ -10,6 +10,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @ToString
 @Entity
 @Table(name = "users")
@@ -31,7 +32,4 @@ public class User {
     @Email
     @Column(unique = true)
     private String email;
-
-    /*@Version
-    private Integer version;*/
 }
