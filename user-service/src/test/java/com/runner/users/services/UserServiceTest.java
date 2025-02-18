@@ -87,7 +87,7 @@ class UserServiceTest {
 
     @Test
     void testCreateUser() {
-        User user = CreateTestData.createTestUser();
+        User user = CreateTestData.createTestUserB();
         userService.create(user);
 
         User savedUser = userService.find(5);
@@ -109,9 +109,27 @@ class UserServiceTest {
     }
 
     @Test
-    void testUserThatDoNotExistThrowsExceptionWhenGetsUpdated() {
+    void testUpdatingUserWithDifferentIdsThrowsException() {
         User user = userService.find(1);
         assertThrowsExactly(IllegalArgumentException.class, () -> userService.update(user, 99));
+    }
+
+    @Test
+    void testUpdatingNonExistentUserThrowsException() {
+        User user = CreateTestData.createTestUserA();
+        assertThrowsExactly(UserNotFoundException.class, () -> userService.update(user, user.getId()));
+    }
+
+    @Test
+    void testDeleteExistingUser() {
+        userService.delete(1);
+        assertThrowsExactly(UserNotFoundException.class, () -> userService.find(1));
+    }
+
+    @Test
+    void testDeleteNonExistingUserThrowsException() {
+        userService.delete(1);
+        assertThrowsExactly(UserNotFoundException.class, () -> userService.find(1));
     }
 
 }
